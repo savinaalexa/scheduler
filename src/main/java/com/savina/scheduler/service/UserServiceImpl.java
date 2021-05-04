@@ -43,8 +43,8 @@ public class UserServiceImpl implements UserService {
                 : userCredsEntities.get(0);
     }
 
-    /*@Override
-    public UserCredsEntity update(UserCredsEntity userEntity, int id) {
+    @Override
+    public UserCredentials update(UserCredentials userEntity, int id) {
         return userRepository.save(userEntity);
     }
 
@@ -52,7 +52,7 @@ public class UserServiceImpl implements UserService {
     public boolean delete(int id) {
         userRepository.deleteById(id);
         return !userRepository.existsById(id);
-    }*/
+    }
 
 
     /*

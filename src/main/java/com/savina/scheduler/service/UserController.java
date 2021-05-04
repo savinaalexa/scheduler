@@ -55,11 +55,11 @@ public class UserController {
                 : new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
-   /* @PutMapping(value = "/users/{id}")
-    public ResponseEntity<?> update(@PathVariable(name = "id") int id, @RequestBody User user) {
-        final boolean updated = userService.update(user, id);
+    @PutMapping(value = "/users/{id}")
+    public ResponseEntity<?> update(@PathVariable(name = "id") int id, @RequestBody UserCredentials user) {
+        final UserCredentials updated = userService.update(user, id);
 
-        return updated
+        return updated != null
                 ? new ResponseEntity<>(HttpStatus.OK)
                 : new ResponseEntity<>(HttpStatus.NOT_MODIFIED);
     }
@@ -71,5 +71,5 @@ public class UserController {
         return deleted
                 ? new ResponseEntity<>(HttpStatus.OK)
                 : new ResponseEntity<>(HttpStatus.NOT_MODIFIED);
-    }*/
+    }
 }

@@ -16,7 +16,7 @@ public interface UserService {
     @Nullable
     UserCredentials findByCredentials(Credentials credentials);
 
-   // UserCredentials update(UserCredentials userEntity, int id);
+    UserCredentials update(UserCredentials userEntity, int id);
 
-    //boolean delete(int id);
+    boolean delete(int id);
 }
