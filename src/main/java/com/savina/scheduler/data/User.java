@@ -3,8 +3,17 @@ package com.savina.scheduler.data;
 public class User {
     private Integer id;
     private String name;
+    private String surname;
     private String email;
     private String phone;
+
+    public User(Integer id, String name, String surname, String email, String phone) {
+        this.id = id;
+        this.name = name;
+        this.surname = surname;
+        this.email = email;
+        this.phone = phone;
+    }
 
     public Integer getId() {
         return id;
@@ -36,5 +45,13 @@ public class User {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
     }
 }
