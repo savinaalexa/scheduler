@@ -11,7 +11,7 @@ public class UserCredentials {
     @Id // Сообщяем ORM что это поле - Primary Key
     @JsonProperty("id")
     @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.AUTO) //- для MySql и для постгре на хероку
+    @GeneratedValue(strategy = GenerationType.AUTO) //- для постгре на хероку
     //@SequenceGenerator(name = "usersIdSeq", sequenceName = "users_seq", allocationSize = 1)
     //@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "usersIdSeq")
     private Integer id = 0;

@@ -24,15 +24,16 @@ public class UserController {
 
     @PostMapping(value = "/users/create")
     public ResponseEntity<?> create(@RequestBody UserCredentials userCredentials) {
-        userService.create(userCredentials);
-        return new ResponseEntity<>(HttpStatus.CREATED);
+        return userService.create(userCredentials)
+                ? new ResponseEntity<>(HttpStatus.CREATED)
+                : new ResponseEntity<>(HttpStatus.NOT_MODIFIED);
     }
 
     @GetMapping(value = "/users")
     public ResponseEntity<List<UserCredentials>> read() {
         final List<UserCredentials> users = userService.readAll();
 
-        return users != null &&  !users.isEmpty()
+        return users != null && !users.isEmpty()
                 ? new ResponseEntity<>(users, HttpStatus.OK)
                 : new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
@@ -51,7 +52,7 @@ public class UserController {
         final UserCredentials uc = userService.findByCredentials(credentials);
 
         return uc != null
-                ? new ResponseEntity<>(new User (uc.getId(),uc.getName(),uc.getSurname(),uc.getEmail(),uc.getPhone()), HttpStatus.OK)
+                ? new ResponseEntity<>(new User(uc.getId(), uc.getName(), uc.getSurname(), uc.getEmail(), uc.getPhone()), HttpStatus.OK)
                 : new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 

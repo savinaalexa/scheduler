@@ -7,10 +7,7 @@ import com.savina.scheduler.data.UserRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.concurrent.atomic.AtomicInteger;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -22,8 +19,14 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void create(UserCredentials userEntity) {
-        userRepository.save(userEntity);
+    public boolean create(UserCredentials userCredentials) {
+        List<UserCredentials> userCredentialsList = userRepository.findByLogin(userCredentials.getLogin());
+        if (userCredentialsList.isEmpty()) {
+            userRepository.save(userCredentials);
+            return true;
+        } else {
+            return false;
+        }
     }
 
     @Override

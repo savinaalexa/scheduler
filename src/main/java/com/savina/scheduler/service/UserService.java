@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface UserService {
 
-    void create(UserCredentials userEntity);
+    boolean create(UserCredentials userEntity);
 
     List<UserCredentials> readAll();
 
