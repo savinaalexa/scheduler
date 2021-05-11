@@ -23,9 +23,9 @@ public class UserController {
     //ResponseEntity — специальный класс для возврата ответов
 
     @PostMapping(value = "/users/create")
-    public ResponseEntity<?> create(@RequestBody UserCredentials userCredentials) {
-        return userService.create(userCredentials)
-                ? new ResponseEntity<>(HttpStatus.CREATED)
+    public ResponseEntity<?> create(@RequestBody UserCredentials uc) {
+        return userService.create(uc)
+                ? new ResponseEntity<>(new User(uc.getId(), uc.getName(), uc.getSurname(), uc.getEmail(), uc.getPhone()), HttpStatus.CREATED)
                 : new ResponseEntity<>(HttpStatus.NOT_MODIFIED);
     }
 
